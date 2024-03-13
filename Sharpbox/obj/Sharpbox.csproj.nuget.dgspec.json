@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/shyshkiv/RiderProjects/Sharpbox/Sharpbox/Sharpbox.csproj": {}
+  },
+  "projects": {
+    "/home/shyshkiv/RiderProjects/Sharpbox/Sharpbox/Sharpbox.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/shyshkiv/RiderProjects/Sharpbox/Sharpbox/Sharpbox.csproj",
+        "projectName": "Sharpbox",
+        "projectPath": "/home/shyshkiv/RiderProjects/Sharpbox/Sharpbox/Sharpbox.csproj",
+        "packagesPath": "/home/shyshkiv/.nuget/packages/",
+        "outputPath": "/home/shyshkiv/RiderProjects/Sharpbox/Sharpbox/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/shyshkiv/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://eu.repository.roche.com/artifactory/api/nuget/v3/mollab-general-nuget-all-l": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/239/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
