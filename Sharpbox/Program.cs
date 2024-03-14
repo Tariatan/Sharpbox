@@ -1,4 +1,5 @@
-﻿using Sharpbox;
+﻿using System.Globalization;
+using Sharpbox;
 
 var list = new List<KeyValuePair<string, string>>
 {
@@ -40,6 +41,9 @@ Console.WriteLine(result);
 result = AdvancedSwitch(mnemonicPair, false);
 Console.WriteLine(result);
 
+var match = systemMars is { Planet: Planets.Mars, Moon: Moons.Deimos };
+Console.WriteLine(match);
+
 // Populate list
 var moons = Enumerable.Repeat<Moons>(default, 5).ToList();
 Console.WriteLine($"{string.Join(" ", moons)}");
@@ -54,9 +58,31 @@ string? ElementToString<T>(T element)
     };
 }
 
-// Numbers format
+// Format
 Console.WriteLine($"{ElementToString(3.14142135)}");
 Console.WriteLine($"{ElementToString(true)}");
 var ml = new decimal(1.23456);
 Console.WriteLine($"{ml:N2}");
-Console.WriteLine($"{6:00}");
+Console.WriteLine($"{6:000}");
+Console.WriteLine(double.Parse("16.18864", NumberStyles.Float, CultureInfo.CurrentCulture).ToString("N3"));
+
+// Template
+var enums = new List<Enum>();
+void AddEnumEntry<TEntry>(
+    ref List<Enum> values,
+    TEntry enumEntry)
+    where TEntry : struct, IConvertible
+{
+    if (!typeof(TEntry).IsEnum)
+    {
+        throw new ArgumentException("TEntry must be an enumerated type");
+    }
+
+    values.Add((Enum)(object)enumEntry);
+}
+
+AddEnumEntry(ref enums, Planets.Earth);
+AddEnumEntry(ref enums, Mnemonic.Educated);
+AddEnumEntry(ref enums, Moons.Io);
+
+Console.WriteLine($"{string.Join(" ", enums)}");
