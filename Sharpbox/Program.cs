@@ -86,3 +86,10 @@ AddEnumEntry(ref enums, Mnemonic.Educated);
 AddEnumEntry(ref enums, Moons.Io);
 
 Console.WriteLine($"{string.Join(" ", enums)}");
+
+Console.WriteLine($"{nameof(Systems.DateThePlanetWasDiscovered)}".SplitByCapitalLetters());
+
+foreach (var field in systemMars.GetType().GetProperties())
+{
+    Console.WriteLine($"{field.Name.SplitByCapitalLetters()}: {field.GetValue(systemMars)}");
+}
