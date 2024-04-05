@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Sharpbox;
 
 public class Systems
@@ -11,5 +13,10 @@ public class Systems
     {
         Planet = planet;
         Moon = moon;
+    }
+
+    public void PrintMethodName()
+    {
+        Console.WriteLine($"{this.GetType().Name}::{MethodBase.GetCurrentMethod()!.Name}");
     }
 }

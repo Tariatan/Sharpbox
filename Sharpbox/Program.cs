@@ -41,6 +41,8 @@ Console.WriteLine(result);
 result = AdvancedSwitch(mnemonicPair, false);
 Console.WriteLine(result);
 
+systemMars.PrintMethodName();
+
 var match = systemMars is { Planet: Planets.Mars, Moon: Moons.Deimos };
 Console.WriteLine(match);
 
@@ -92,4 +94,34 @@ Console.WriteLine($"{nameof(Systems.DateThePlanetWasDiscovered)}".SplitByCapital
 foreach (var field in systemMars.GetType().GetProperties())
 {
     Console.WriteLine($"{field.Name.SplitByCapitalLetters()}: {field.GetValue(systemMars)}");
+}
+
+var data = new List<KeyValuePair<Planets, Moons>>()
+{
+    new KeyValuePair<Planets, Moons>( Planets.Earth, Moons.Luna ),
+    new KeyValuePair<Planets, Moons>( Planets.Jupiter, Moons.Io ),
+    new KeyValuePair<Planets, Moons>( Planets.Mars, Moons.Phobos ),
+    new KeyValuePair<Planets, Moons>( Planets.Mars, Moons.Deimos ),
+    new KeyValuePair<Planets, Moons>( Planets.Mars, Moons.Deimos ),
+    new KeyValuePair<Planets, Moons>( Planets.Mars, Moons.Deimos ),
+    new KeyValuePair<Planets, Moons>( Planets.Mars, Moons.Deimos ),
+};
+
+var dict = new SortedDictionary<Planets, List<Moons>>();
+// Structured bindings example
+foreach (var (planet, planetMoons) in data)
+{
+    if (dict.TryGetValue(planet, out var value))
+    {
+        value.Add(planetMoons);
+    }
+    else
+    {
+        dict.Add(planet, new List<Moons>(){planetMoons});
+    }
+}
+
+foreach (var (planet, planetMoons) in dict)
+{
+    Console.WriteLine($"{planet}: {string.Join(" ", planetMoons)} #of_Deimos:{planetMoons.Count(myMoon => myMoon == Moons.Deimos)}");
 }
