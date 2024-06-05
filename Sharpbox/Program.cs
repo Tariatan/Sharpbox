@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
+using System.Text;
 using Sharpbox;
 
 var list = new List<KeyValuePair<string, string>>
 {
     ("Hello", "world").ToPair()
 };
-
 
 // Variables in strings
 Console.WriteLine($"{list.First().Key} {list.First().Value}!");
@@ -126,5 +126,12 @@ foreach (var (planet, planetMoons) in dict)
     Console.WriteLine($"{planet}: {string.Join(" ", planetMoons)} #of_Deimos:{planetMoons.Count(myMoon => myMoon == Moons.Deimos)}");
 }
 
-
 Console.WriteLine($"{TimeSpan.FromSeconds(10).TotalMilliseconds}");
+
+// Heavy string
+var manyWords = new StringBuilder();
+for (var i = 0; i < 100; i++)
+{
+    manyWords.Append("word");
+}
+Console.WriteLine($"{manyWords}");
