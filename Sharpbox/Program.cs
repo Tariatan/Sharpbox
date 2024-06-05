@@ -125,3 +125,6 @@ foreach (var (planet, planetMoons) in dict)
 {
     Console.WriteLine($"{planet}: {string.Join(" ", planetMoons)} #of_Deimos:{planetMoons.Count(myMoon => myMoon == Moons.Deimos)}");
 }
+
+
+Console.WriteLine($"{TimeSpan.FromSeconds(10).TotalMilliseconds}");
