@@ -135,3 +135,6 @@ for (var i = 0; i < 100; i++)
     manyWords.Append("word");
 }
 Console.WriteLine($"{manyWords}");
+
+var scan = new Scan();
+scan.Do();

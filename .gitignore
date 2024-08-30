@@ -1,3 +1,3 @@
 # build folders
-Sharpbox/obj/Debug
-Sharpbox/bin/Debug
+Sharpbox/obj
+Sharpbox/bin
