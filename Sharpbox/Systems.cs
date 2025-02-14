@@ -2,18 +2,12 @@ using System.Reflection;
 
 namespace Sharpbox;
 
-public class Systems
+public class Systems(Planets planet, Moons moon)
 {
-    public Planets Planet { get; }
-    public Moons Moon { get; }
+    public Planets Planet { get; } = planet;
+    public Moons Moon { get; } = moon;
 
     public DateTime DateThePlanetWasDiscovered = DateTime.Now;
-
-    public Systems(Planets planet, Moons moon)
-    {
-        Planet = planet;
-        Moon = moon;
-    }
 
     public void PrintMethodName()
     {

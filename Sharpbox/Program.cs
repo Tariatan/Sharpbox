@@ -117,7 +117,7 @@ foreach (var (planet, planetMoons) in data)
     }
     else
     {
-        dict.Add(planet, new List<Moons>(){planetMoons});
+        dict.Add(planet, [planetMoons]);
     }
 }
 

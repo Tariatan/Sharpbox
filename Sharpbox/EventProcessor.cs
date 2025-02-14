@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using System.ComponentModel;
 
 namespace Sharpbox;
 
@@ -25,6 +26,12 @@ public class EventProcessor
         }
     }
 
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public void HiddenMethod()
+    {
+        // to nothing
+    }
+
     private static void ProcessEvent(EventData eventData)
     {
         // Simulate event processing and re-translation
@@ -35,7 +42,7 @@ public class EventProcessor
 }
 
 // Sample event data class
-public abstract class EventData
+public abstract class EventData(string? name)
 {
-    public string? Name { get; }
+    public string? Name { get; } = name;
 }

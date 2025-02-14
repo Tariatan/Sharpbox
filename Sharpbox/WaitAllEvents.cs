@@ -6,15 +6,6 @@ public class MessageRetranslation
     private int expectedEventsCount;
     private int receivedEventsCount;
 
-    public MessageRetranslation()
-    {
-        receivedEventsCount = 0;
-    }
-
-    public void Setup()
-    {
-    }
-
     public async Task TestMessageRetranslation()
     {
         // Arrange
@@ -22,7 +13,6 @@ public class MessageRetranslation
 
         // Await the completion of all events
         await this.allEventsReceived.Task.WaitAsync(TimeSpan.FromSeconds(10));
-
     }
 
     private void OnEventReceived()
