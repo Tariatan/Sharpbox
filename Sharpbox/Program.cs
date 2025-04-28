@@ -138,3 +138,21 @@ Console.WriteLine($"{manyWords}");
 
 var scan = new Scan();
 scan.Do();
+
+
+var messages = new List<string>();
+var b1 = false;
+var b2 = false;
+
+if (b1)
+{
+    messages.Add("Reservoir PM A");
+}
+
+if (b2)
+{
+    messages.Add("Reservoir PM B");
+}
+
+var bbss = string.Join(", ", messages);
+int ibsy = 0;
