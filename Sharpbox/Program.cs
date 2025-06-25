@@ -155,10 +155,16 @@ if (b2)
 }
 
 var bbss = string.Join(", ", messages);
-int ibsy = 0;
 
 var date = DateTime.Now;
 var timeStamp = date.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture);
 
 double d = 3;
 Console.WriteLine($"{d.ToString(2)}");
+
+var path = Path.Combine(Path.GetTempPath(), "image.png");
+Png.CreatePngFile(path);
+if (File.Exists(path))
+{
+    File.Delete(path);
+}
