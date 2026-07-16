@@ -58,7 +58,7 @@ public class Scan
                 continue;
             }
 
-            if (true)
+            if (startIndex == 0)
             {
                 // Exit the loop if only the first plate was scanned
                 break;
