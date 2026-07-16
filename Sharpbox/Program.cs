@@ -11,7 +11,7 @@ var list = new List<KeyValuePair<string, string>>
 Console.WriteLine($"{list.First().Key} {list.First().Value}!");
 
 // Enum values to list
-var mnemonic = Enum.GetValues(typeof(Mnemonic)).Cast<Mnemonic>().ToArray();
+var mnemonic = Enum.GetValues<Mnemonic>().Cast<Mnemonic>().ToArray();
 // Concatenate list entries
 if (mnemonic.Any(word => word.Equals(Mnemonic.Mother)))
 {
@@ -19,7 +19,7 @@ if (mnemonic.Any(word => word.Equals(Mnemonic.Mother)))
 }
 
 // Parse Enum
-var us = (Mnemonic)Enum.Parse(typeof(Mnemonic), nameof(Mnemonic.Pancakes));
+var us = Enum.Parse<Mnemonic>(nameof(Mnemonic.Pancakes));
 Console.WriteLine(us);
 
 // Advanced switch
@@ -29,7 +29,7 @@ bool AdvancedSwitch(object value, bool flag)
     return value switch
     {
         MnemonicPair {Planet: Planets.Earth} => true,
-        Systems castEnum when castEnum.Moon == moon && flag == false => true,
+        Systems castEnum when castEnum.Moon == moon && !flag => true,
         _ => false
     };
 }
