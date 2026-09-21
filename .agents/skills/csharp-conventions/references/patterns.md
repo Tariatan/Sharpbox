@@ -1,24 +1,4 @@
-# C# Best Practices (Personal)
-
-Rules below apply whenever writing or reviewing C# code.
-
-## Naming
-
-- Fields: `private readonly camelCase` (no underscore prefix).
-- Properties: PascalCase, prefer getter-only `{ get; }` for immutable state.
-- Methods and parameters: PascalCase methods, camelCase parameters.
-- Constants: PascalCase (`const int ColumnSize = 8;`), never ALL_CAPS.
-- Enums: PascalCase type and members. Trailing comma after the last member.
-- Access modifiers: always explicit — write `private` even when it is the default.
-
-## File & Type Organization
-
-- File-scoped namespaces: `namespace Foo;` (no block braces).
-- One type per file. Closely related helper types (e.g. a small DTO used only by its sibling) may share a file.
-- `using` directives go outside (above) the namespace declaration.
-- Implicit usings enabled — do not re-import namespaces the SDK already provides.
-
-## Patterns & Idioms
+# Patterns & Idioms
 
 - Prefer `var` when the type is obvious from the right-hand side.
 - Prefer expression-bodied members (`=>`) for single-expression methods and properties.
@@ -34,6 +14,9 @@ Rules below apply whenever writing or reviewing C# code.
 - Use property patterns (`{ Prop: value }`), relational patterns, and `when` guards freely.
 - Allman brace style. Always use braces for `if`/`for`/`foreach` bodies, even single-statement.
 - Prefer `foreach` over index-based `for` loops. Use deconstruction (`foreach (var (k, v) in dict)`) when iterating key-value pairs.
+- One attribute per line — don't combine multiple attributes into a single `[...]` declaration.
+- Use `record` for value-object types — gets structural equality (`IEquatable`) and immutable properties for free instead of hand-writing both on a class.
+- `IReadOnlyCollection<T>` for a collection you expose (e.g. a property); `IEnumerable<T>` for a collection you merely consume (e.g. a method parameter).
 
 ## Modern Framework Features
 
@@ -65,15 +48,6 @@ Rules below apply whenever writing or reviewing C# code.
 - Implement the full `IDisposable` pattern (finalizer, `Dispose(bool)`, `GC.SuppressFinalize`) when holding unmanaged resources.
 - Use `using` declarations (`using var x = ...;`) over `using` statement blocks.
 
-## Testing
-
-- *(No project-specific conventions yet — fill in when established.)*
-
 ## Things to Avoid
 
-- Underscore-prefixed fields (`_field`) — use plain `camelCase`.
-- `record` types without a clear reason — prefer classes with getter-only properties for domain types.
-- Omitting access modifiers on any member.
-- `Console.WriteLine` in production code — use structured logging (`ILogger`).
-- `catch` without re-throw or handling — never swallow exceptions silently.
 - `new[]` syntax — prefer collection expressions `[...]` on modern target frameworks.
