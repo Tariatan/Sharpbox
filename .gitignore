@@ -1,3 +1,6 @@
 # build folders
 Sharpbox/obj
 Sharpbox/bin
+
+# IDE
+.idea
