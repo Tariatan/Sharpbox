@@ -11,6 +11,6 @@ Detail lives in the reference files below; read whichever ones are relevant to t
 
 - `references/coding-guidelines.md` — file/type organization, the correctness/architecture/design-complexity checklist, and general things to avoid.
 - `references/naming.md` — naming conventions for fields, properties, methods, constants, enums.
-- `references/patterns.md` — language idioms, modern framework features, null handling, async/concurrency, disposal.
+- `references/patterns.md` — layout/readability, language idioms, modern framework features, null handling, async/concurrency, disposal.
 - `references/testing.md` — unit test conventions.
 - `references/logging.md` — logging conventions (coherent story, log levels, start/end patterns, event/request logging, separators).

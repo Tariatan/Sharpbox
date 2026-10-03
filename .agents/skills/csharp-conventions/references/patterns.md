@@ -1,5 +1,13 @@
 # Patterns & Idioms
 
+## Layout and Readability
+
+- Format object initializers with multiple properties across separate lines: opening brace on the next line, one property per line, and closing brace on its own line.
+- Separate setup, conditional blocks, calculated values, and loops with blank lines when this makes the method easier to scan.
+- In nested UI construction, give each control and its properties enough space to read without scanning across a long line.
+
+## Language Idioms
+
 - Prefer `var` when the type is obvious from the right-hand side.
 - Prefer expression-bodied members (`=>`) for single-expression methods and properties.
 - Use primary constructors where the class mainly captures constructor parameters as properties.
